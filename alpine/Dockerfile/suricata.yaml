@@ -121,7 +121,7 @@ outputs:
             # metadata: yes              # add L7/applayer fields, flowbit and other vars to the alert
             http: yes
             tls: yes
-            ssh: yes
+            ssh: no
             smtp: yes
             
             # Enable the logging of tagged packets for rules using the
@@ -176,7 +176,7 @@ outputs:
         #    flows: all       # start or all: 'start' logs only a single drop
         #                     # per flow direction. All logs each dropped pkt.
         - smtp:
-            #extended: yes # enable this for extended logging information
+            extended: yes # enable this for extended logging information
             # this includes: bcc, message-id, subject, x_mailer, user-agent
             # custom fields logging from the list:
             #  reply-to, bcc, message-id, subject, x-mailer, user-agent, received,
@@ -188,9 +188,9 @@ outputs:
             # to yes
             #md5: [body, subject]
 
-        - ssh
+        #- ssh
         - stats:
-            totals: yes       # stats for all threads merged together
+            totals: yes      # stats for all threads merged together
             threads: no       # per thread stats
             deltas: no        # include delta values
         # bi-directional flows
@@ -650,7 +650,7 @@ app-layer:
     ftp:
       enabled: yes
     ssh:
-      enabled: yes
+      enabled: no
     smtp:
       enabled: yes
       # Configure SMTP-MIME Decoder
